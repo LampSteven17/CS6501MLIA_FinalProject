@@ -24,9 +24,10 @@ def main():
         img = skimage.color.gray2rgb(img)
         img = skimage.util.img_as_ubyte(img)
         if 'Training' in path:
+            num_output = 10 if 'Healthy' in path else 5
             img_tensor = tf.convert_to_tensor(img)
-            for i in range(10):
-                new_img = automl.autoaugment.distort_image_with_randaugment(img_tensor, 2, 8)
+            for i in range(num_output):
+                new_img = automl.autoaugment.distort_image_with_randaugment(img_tensor, 2, 3)
                 imageio.imwrite(filename+'_augment_'+str(i)+'.png', new_img.numpy(), format='png')
                 print(filename+'_augment_'+str(i)+'.png')
         imageio.imwrite(filename+'.png', img, format='png')

@@ -22,7 +22,7 @@ import math
 from absl import logging
 import tensorflow.compat.v1 as tf
 from tensorflow_addons import image as image_ops
-import hparams
+import automl.hparams as hparams
 
 # pylint: disable=g-long-lambda
 # This signifies the max integer that the controller RNN could predict for the
@@ -680,10 +680,7 @@ def distort_image_with_randaugment(image, num_layers, magnitude):
   replace_value = [128] * 3
   logging.info('Using RandAug.')
   augmentation_params = hparams.Config(cutout_const=40, translate_const=100)
-  available_ops = [
-      'AutoContrast', 'Equalize', 'Invert', 'Rotate', 'Posterize',
-      'Solarize', 'Color', 'Contrast', 'Brightness', 'Sharpness',
-      'ShearX', 'ShearY', 'TranslateX', 'TranslateY', 'Cutout', 'SolarizeAdd']
+  available_ops = ['Rotate', 'Contrast', 'Brightness', 'Sharpness', 'ShearX', 'ShearY', 'TranslateX', 'TranslateY']
 
   for layer_num in range(num_layers):
     op_to_select = tf.random_uniform(
