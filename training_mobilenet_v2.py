@@ -27,7 +27,7 @@ def main():
         model.compile(
             loss=keras.losses.CategoricalCrossentropy(),
             optimizer=keras.optimizers.Adam(learning_rate=0.00003),
-            metrics=[keras.metrics.BinaryAccuracy(), keras.metrics.AUC(), tfa.metrics.F1Score(2, average='micro')],
+            metrics=[keras.metrics.CategoricalAccuracy(), keras.metrics.AUC(), tfa.metrics.F1Score(2, average='micro')],
         )
         model.fit(train_ds, epochs=100, validation_data=test_ds, callbacks=[model_checkpoint_callback])
         print(model.predict(test_ds))
@@ -44,7 +44,7 @@ def main():
         model.compile(
             loss=keras.losses.CategoricalCrossentropy(),
             optimizer=keras.optimizers.Adam(learning_rate=0.00003),
-            metrics=[keras.metrics.BinaryAccuracy(), keras.metrics.AUC(), tfa.metrics.F1Score(2, average='micro')],
+            metrics=[keras.metrics.CategoricalAccuracy(), keras.metrics.AUC(), tfa.metrics.F1Score(2)],
         )
         print(model.predict(test_ds))
         print(model.evaluate(test_ds))
