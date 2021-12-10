@@ -20,7 +20,9 @@ Classification_data_augmented is deprecated and contains images which have inval
 
 Classification_data_unaugmented_balanced was briefly used to test if the data imbalance problem could be solved by deleting some training data. It was not used to prepare the report, and is not recommended for use. Initial trials showed this left too little data available to be useful for training.
 
-The model checkpoints used in the report are stored in models/mobilenet_augmented_100ep/ and models/mobilenet_unaugmented_100ep/. The rest are kept for source control reasons, do not use. They may  not even work with the current versions of the scripts.
+The model checkpoints used in the report are stored in models/mobilenet_augmented_100ep/ and models/mobilenet_unaugmented_100ep/. The rest are kept for source control reasons, do not use. They may not even work with the current versions of the scripts.
+
+automl dir contains lightly modified code from  https://github.com/google/automl/. They provide the RandAugment implementation we have used.
 
 ## Script Overview
 ### converter.py
