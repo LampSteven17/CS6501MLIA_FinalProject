@@ -13,6 +13,8 @@ import tensorflow as tf
 import skimage.util
 import skimage.color
 
+should_augment = True
+
 def main():
     print('Creating files in original directory...')
     for path in glob.glob('Classification_data_raw/*/*/*.mhd', recursive=True):
@@ -23,7 +25,7 @@ def main():
         img = skimage.transform.resize(img, (240, 240))
         img = skimage.color.gray2rgb(img)
         img = skimage.util.img_as_ubyte(img)
-        if 'Training' in path:
+        if should_augment and 'Training' in path:
             num_output = 10 if 'Healthy' in path else 5
             img_tensor = tf.convert_to_tensor(img)
             for i in range(num_output):
