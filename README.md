@@ -1,6 +1,6 @@
 # RandAugment Experiment README
 ## Cloning
-The Github repo we are using uses Git LFS. See here: https://git-lfs.github.com/
+The Github repo we are using uses Git LFS. See here: https://git-lfs.github.com/ and here: https://www.atlassian.com/git/tutorials/git-lfs
 
 To clone this repo, you need to do git lfs clone, not just git clone. If you try to do a normal git clone without lfs installed, the model and classification data directories will look all wrong. If you don't want to deal with this, we recommend just downloading the .zip file.
 ## Required Libraries
